@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------------
 # Sunrise theme for oh-my-zsh by Adam Lindberg (eproxus@gmail.com)
 # Intended to be used with Solarized: http://ethanschoonover.com/solarized
-# (Needs Git plugin for current_branch method)
+# (Needs Git plugin for git_current_branch method)
 #-------------------------------------------------------------------------------
 
 # Color shortcuts
@@ -50,7 +50,7 @@ git_remote_status() {
 
 # Checks if there are commits ahead from remote
 function git_prompt_ahead_number() {
-    nbcommits=${$(command git log origin/$(current_branch)..HEAD 2> /dev/null | grep '^commit' | wc -l )// /}
+    nbcommits=${$(command git log origin/$(git_current_branch)..HEAD 2> /dev/null | grep '^commit' | wc -l )// /}
     if [[ -n ${nbcommits} ]] ; then
         if [ $nbcommits -gt 0 ]
         then
